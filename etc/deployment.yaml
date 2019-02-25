@@ -14,11 +14,11 @@ spec:
       containers:
         - name: web
           image: docker-registry.tools.wmflabs.org/toollabs-python-base:latest
-          command: [ "/data/project/entsuggest/bin/entsuggest.sh", "run" ]
-          workingDir: /data/project/entsuggest
+          command: [ "/data/project/entsuggest/entsuggest/bin/entsuggest.sh", "run" ]
+          workingDir: /data/project/entsuggest/entsuggest
           env:
             - name: HOME
-              value: /data/project/entsuggest
+              value: /data/project/entsuggest/entsuggest
           imagePullPolicy: Always
           volumeMounts:
             - name: home
