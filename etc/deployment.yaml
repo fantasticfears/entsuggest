@@ -1,0 +1,29 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: entsuggest.web
+  namespace: entsuggest
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: entsuggest.web
+    spec:
+      containers:
+        - name: web
+          image: docker-registry.tools.wmflabs.org/toollabs-python-base:latest
+          command: [ "/data/project/entsuggest/bin/entsuggest.sh", "run" ]
+          workingDir: /data/project/entsuggest
+          env:
+            - name: HOME
+              value: /data/project/entsuggest
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: home
+              mountPath: /data/project/entsuggest/
+      volumes:
+        - name: home
+          hostPath:
+            path: /data/project/entsuggest/

@@ -1,0 +1,86 @@
+<html>
+
+<head>
+  <title>{{ _("title") }}</title>
+  <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/static/stylesheets/bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+  <div class="container">
+    <div class="py-5 text-center">
+      <i class="fas fa-crosshairs" data-fa-transform="grow-18"></i>
+      <h2>{{ _("Entity Suggestion") }}</h2>
+      <p class="lead">{{ _("Below is an example form built entirely with Bootstrap's form controls. Each required form group"
+        "has a validation state that can be triggered by attempting to submit the form without completing it.") }}</p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <form class="needs-validation" novalidate="">
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label for="entityHead">Entity</label>
+              <input type="text" class="form-control" id="entityHead" placeholder="" value="" required="">
+              <div class="invalid-feedback">
+                Valid entity is required.
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="relation">Relation</label>
+                <input type="text" class="form-control" id="relation" placeholder="" value="" required="">
+                <div class="invalid-feedback">
+                  Valid relation is required.
+                </div>
+              </div>
+            <div class="col-md-4 mb-3">
+              <label for="entityTail">Entity</label>
+              <input type="text" class="form-control" id="entityTail" placeholder="" value="" required="">
+              <div class="invalid-feedback">
+                Valid entity is required.
+              </div>
+            </div>
+          </div>
+
+          <hr class="mb-4">
+          <button class="btn btn-primary btn-lg btn-block" type="submit">Suggest</button>
+        </form>
+      </div>
+    </div>
+
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+      <p class="mb-1">© 2019 Erick Guan</p>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="/privacy">Privacy</a></li>
+        <li class="list-inline-item"><a href="/abuot">About</a></li>
+      </ul>
+    </footer>
+  </div>
+
+  <style src="/static/javascripts/bootstrap.bundle.min.js"></style>
+  <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function () {
+        'use strict';
+
+        window.addEventListener('load', function () {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function (form) {
+            form.addEventListener('submit', function (event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+  </script>
+
+</body>
+
+</html>
